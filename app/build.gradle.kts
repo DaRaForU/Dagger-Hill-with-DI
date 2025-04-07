@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.kapt") // This enables kapt
 }
 
 android {
@@ -45,4 +46,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // ViewModel Compose
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+
+    //Dagger - Hilt
+    implementation (libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation (libs.androidx.hilt.lifecycle.viewmodel)
+    kapt (libs.androidx.hilt.compiler)
+    implementation (libs.androidx.hilt.navigation.compose)
+
+    // Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.okhttp)
 }
